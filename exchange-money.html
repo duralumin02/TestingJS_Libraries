@@ -8,16 +8,37 @@
 		<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
 	</head>
 	<style>
+		body {
+			background-color: #023047;
+			color: #fff;
+		}
 		.container {
 			width: 500px;
-			height: 600px;
+			height: 300px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.result {
+			font-size: 3em;
+			font-weight: normal;
+		}
+		.text {
+			background: url('https://media0.giphy.com/media/f4IjBQupqojhqQzKk2/200w.webp?cid=ecf05e47938g4qashr8oyx8r7ty213qbmfv1c0c87eqy9nzi&rid=200w.webp&ct=g');
+			font-size: 3em;
+			font-weight: bolder;
+			background-size: cover;
+			background-clip: text;
+			-webkit-background-clip: text;
+			color: transparent;
 		}
 	</style>
 	<body>
 		<div class="container mx-auto mt-5">
-			<p class="mmk">0 mmk equal to</p>
-			<h3 class="result">Result : 0 USD</h3>
-			<input type="number" class="form-control-sm me-2 input-amount" placeholder="input mmk" />
+			<h5 class="mmk">0 MMK Equal To</h5>
+			<span class="text">Result : </span><span class="result">0</span><span class="text">USD</span>
+			<input type="number" class="form-control me-2 input-amount mb-3" placeholder="input mmk" />
 			<button class="btn btn-warning" id="button">TO USD</button>
 		</div>
 	</body>
@@ -33,7 +54,7 @@
 
 		button.addEventListener('click', () => {
 			usd = inputMMK.value / 1854;
-			showResult.innerHTML = 'Result : ' + usd.toFixed(2) + ' USD';
+			showResult.innerHTML = usd.toFixed(2);
 			showAmoutChangeFrom.innerText = inputMMK.value + ' mmk equal to';
 			inputMMK.value = '';
 		});

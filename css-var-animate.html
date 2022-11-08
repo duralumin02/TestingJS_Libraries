@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>css var animate</title>
+		<style>
+			.container {
+				display: flex;
+				justify-content: space-between;
+			}
+			.item {
+				width: 100px;
+				height: 50px;
+			}
+
+			.one {
+				background-color: pink;
+			}
+			.two {
+				background-color: blueviolet;
+			}
+
+			.three {
+				background-color: orangered;
+			}
+
+			.drop {
+				animation: dropIn 1s ease forwards;
+				animation-delay: calc(var(--order) * 250ms);
+			}
+			@keyframes dropIn {
+				from {
+					transform: translateY(0px);
+				}
+				to {
+					transform: translateY(500px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="one item drop" style="--order: 1"></div>
+			<div class="two item drop" style="--order: 2"></div>
+			<div class="three item drop" style="--order: 3"></div>
+		</div>
+	</body>
+</html>

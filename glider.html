@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Glider</title>
+		<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="./node_modules/glider-js/glider.min.css" />
+		<link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css" />
+	</head>
+	<style>
+		.glider-prev,
+		.glider-next {
+			width: fit-content;
+			position: absolute;
+			background-color: black;
+			padding: 0.4rem;
+			border-radius: 0.45rem;
+		}
+
+		.glider-next {
+			top: 0;
+			right: 0;
+		}
+
+		.glider-prev {
+			top: 0;
+			left: 90%;
+		}
+	</style>
+	<body>
+		<div class="box p-5 m-5 border position-relative">
+			<button aria-label="Previous" class="glider-prev">
+				<i class="bi bi-arrow-left-short"></i>
+			</button>
+			<button aria-label="Next" class="glider-next">
+				<i class="bi bi-arrow-right-short"></i>
+			</button>
+
+			<div class="glider-contain mt-5">
+				<div class="glider">
+					<h1 class="bg-primary p-5 text-center">1</h1>
+					<h1 class="bg-secondary p-5 text-center">2</h1>
+					<h1 class="bg-danger p-5 text-center">3</h1>
+					<h1 class="bg-info p-5 text-center">4</h1>
+					<h1 class="bg-warning p-5 text-center">5</h1>
+					<h1 class="bg-danger p-5 text-center">6</h1>
+					<h1 class="bg-black p-5 text-center">7</h1>
+					<h1 class="bg-white p-5 text-center">8</h1>
+					<h1 class="bg-success p-5 text-center">9</h1>
+					<h1 class="bg-light p-5 text-center">10</h1>
+				</div>
+				<!-- <div role="tablist" class="dots"></div> -->
+			</div>
+		</div>
+
+		<script src="./node_modules/glider-js/glider.min.js"></script>
+
+		<script>
+			new Glider(document.querySelector('.glider'), {
+				slidesToShow: 5,
+				// dots: ".dots",
+				duration: 2.5,
+				draggable: true,
+				dragVelocity: 1.5,
+				arrows: {
+					prev: '.glider-prev',
+					next: '.glider-next',
+				},
+			});
+		</script>
+	</body>
+</html>

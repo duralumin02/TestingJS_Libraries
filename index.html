@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const mGmG = [76, 90, 60, 65, 78, 40];
+      const kYaw2 = [56, 90, 40, 65, 88, 40];
+
+      const reducer = (a, n) => a + n;
+      let subject = 6;
+      let mean = reducer / subject;
+
+      console.log("mgmg sub total marks: ", reduce_fun(mGmG));
+      console.log("mean", reduce_fun(mGmG) / subject);
+
+      console.log("kyaw kyaw sub total marks: ", reduce_fun(kYaw2));
+      console.log("mean", reduce_fun(kYaw2) / subject);
+
+      function reduce_fun(x) {
+        return x.reduce(reducer);
+      }
+    </script>
+  </body>
+</html>

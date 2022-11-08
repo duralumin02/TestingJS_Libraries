@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>addition</title>
+		<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.result span {
+				font-size: 2em;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="m-5 p-5">
+			<div class="d-flex justify-content-end align-items-center mb-3">
+				<i class="fa-solid fa-sun me-2"></i>
+				<div class="form-check form-switch">
+					<input class="form-check-input change-mode" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+				</div>
+				<i class="fa-solid fa-moon"></i>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-floating">
+						<input type="number" class="form-control" id="floatingInput1" placeholder="inputNumber" />
+						<label for="floatingInput1" class="ps-4">Number 1</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-floating">
+						<input type="number" class="form-control" id="floatingInput2" placeholder="inputNumber" />
+						<label for="floatingInput2" class="ps-4">Number 2</label>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<button class="btn btn-primary w-100 mt-4 py-2" type="button" id="calc">
+					<span class="spinner-border spinner-border-sm d-none" id="spinner" role="status" aria-hidden="true"></span>
+					Add
+				</button>
+			</div>
+			<div class="col">
+				<div class="mt-3 result d-flex justify-content-center"><span>Result : </span><span class="ans"></span></div>
+			</div>
+		</div>
+	</body>
+	<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		let no1 = document.getElementById('floatingInput1');
+		let no2 = document.getElementById('floatingInput2');
+		let loader = document.getElementById('spinner');
+		let calc = document.getElementById('calc');
+		let ans = document.querySelector('.ans');
+		let changeMode = document.querySelector('.change-mode');
+
+		calc.addEventListener('click', () => {
+			loader.classList.remove('d-none');
+			setTimeout(() => {
+				ans.innerHTML = no1.valueAsNumber + no2.valueAsNumber;
+				loader.classList.add('d-none');
+				no1.valueAsNumber = '';
+				no2.valueAsNumber = '';
+			}, 800);
+		});
+
+		let dark = () => {
+			document.documentElement.setAttribute('theme', 'dark');
+			localStorage.setItem('theme', 'dark');
+		};
+		let light = () => {
+			document.documentElement.setAttribute('theme', 'light');
+			localStorage.setItem('theme', 'light');
+		};
+		changeMode.addEventListener('change', () => {
+			let color = localStorage.getItem('theme');
+			if (color === 'dark') {
+				light();
+			} else {
+				dark();
+			}
+		});
+	</script>
+</html>

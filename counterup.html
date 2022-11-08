@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Counter Up</title>
+		<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	</head>
+
+	<style>
+		.row {
+			height: 100vh;
+		}
+	</style>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<p>page one</p>
+			</div>
+			<div class="row bg-warning">
+				<p>page two</p>
+			</div>
+			<div class="row bg-info">
+				<p class="counter p-5 fs-1">1,123,456 downloads</p>
+			</div>
+		</div>
+
+		<script src="./node_modules/counterup2/dist/index.js"></script>
+		<script src="/node_modules/waypoints/lib/noframework.waypoints.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+
+		<script>
+			const counterUp = window.counterUp.default;
+			const el = document.querySelector('.counter');
+
+			// new Waypoint({
+			// 	element: document.querySelector(".bg-info"),
+			// 	handler: function () {
+			// 		counterUp(el, {
+			// 			duration: 1000,
+			// 			delay: 50,
+			// 		});
+			// 	},
+
+			// 	offset: "75%",
+			// });
+
+			gsap.registerPlugin(ScrollTrigger);
+
+			ScrollTrigger.create({
+				markers: true,
+				trigger: '.bg-info',
+				start: 'top 50%',
+				end: '40% 30%',
+				onEnter: () => counterUp(el, { duration: 2000, delay: 50 }),
+			});
+		</script>
+	</body>
+</html>

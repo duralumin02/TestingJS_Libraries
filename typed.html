@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+		/>
+	</head>
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap");
+
+		body {
+			background-color: #000;
+			font-family: "Anonymous Pro", monospace;
+		}
+		.typed-cursor,
+		#typed,
+		h1 {
+			color: #4e9a06;
+		}
+	</style>
+	<body>
+		<div class="container m-5 p-5">
+			<h1>Hello world! <span id="typed"></span></h1>
+		</div>
+
+		<script src="./node_modules/typed.js/lib/typed.min.js"></script>
+		<script>
+			new Typed("#typed", {
+				strings: ["I'm Duralumin", "I'm Frontend Developer"],
+				typeSpeed: 100,
+				backSpeed: 50,
+				loop: true,
+				cursorChar: "_",
+				autoInsertCss: true,
+				backDelay: 1500,
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+		/>
+	</head>
+	<body>
+		<!-- Button trigger modal -->
+
+		<!-- Modal -->
+		<div
+			class="modal fade"
+			id="aa"
+			tabindex="-1"
+			aria-labelledby="aaLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="aaLabel">subscribe now</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<div>
+							<label for="email" class="form-label">Your Email</label>
+							<input
+								type="email"
+								placeholder="email address"
+								class="form-control"
+								id="email"
+							/>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+						<button type="button" class="btn btn-primary" id="subscribe-btn">
+							Subscribe
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		let onModal = new bootstrap.Modal(document.getElementById("aa"));
+		let subscribeBtn = document.getElementById("subscribe-btn");
+		let email = document.getElementById("email");
+
+		let toShowModal = setTimeout(() => {
+			onModal.toggle();
+		}, 3000);
+
+		setTimeout(() => {
+			onModal.toggle();
+		}, 8000);
+
+		subscribeBtn.addEventListener("click", () => {
+			console.log(email.value);
+			onModal.toggle();
+		});
+	</script>
+</html>

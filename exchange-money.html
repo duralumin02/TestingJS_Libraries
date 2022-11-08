@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Exchange Money cal</title>
+		<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	</head>
+	<style>
+		.container {
+			width: 500px;
+			height: 600px;
+		}
+	</style>
+	<body>
+		<div class="container mx-auto mt-5">
+			<p class="mmk">0 mmk equal to</p>
+			<h3 class="result">Result : 0 USD</h3>
+			<input type="number" class="form-control-sm me-2 input-amount" placeholder="input mmk" />
+			<button class="btn btn-warning" id="button">TO USD</button>
+		</div>
+	</body>
+
+	<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		let inputMMK = document.querySelector('.input-amount');
+		let showResult = document.querySelector('.result');
+		let showAmoutChangeFrom = document.querySelector('.mmk');
+
+		let button = document.getElementById('button');
+
+		button.addEventListener('click', () => {
+			usd = inputMMK.value / 1854;
+			showResult.innerHTML = 'Result : ' + usd.toFixed(2) + ' USD';
+			showAmoutChangeFrom.innerText = inputMMK.value + ' mmk equal to';
+			inputMMK.value = '';
+		});
+
+		// 1 dollar => 1854 mmk
+	</script>
+</html>

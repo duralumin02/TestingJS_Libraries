@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sweet Alert</title>
+		<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<div class="container m-5 p-5 border">
+			<a href="https://google.com" class="btn btn-primary">Google</a>
+		</div>
+
+		<script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+		<script>
+			let googleBtn = document.querySelector('.btn');
+			googleBtn.addEventListener('click', (e) => {
+				e.preventDefault();
+				Swal.fire({
+					title: 'Are you sure?',
+					text: "You won't be able to revert this!",
+					icon: 'question',
+					showCancelButton: true,
+					confirmButtonColor: 'var(--bs-primary)',
+					cancelButtonColor: '#d33',
+					confirmButtonText: "Let's go",
+				}).then((result) => {
+					if (result.isConfirmed) {
+						const Toast = Swal.mixin({
+							toast: true,
+							position: 'top-end',
+							showConfirmButton: false,
+							timer: 3000,
+							timerProgressBar: true,
+							didOpen: (toast) => {
+								toast.addEventListener('mouseenter', Swal.stopTimer);
+								toast.addEventListener('mouseleave', Swal.resumeTimer);
+							},
+						});
+
+						Toast.fire({
+							icon: 'success',
+							title: 'Signed in successfully',
+						});
+
+						window.location = googleBtn.href;
+						// Swal.fire("Deleted!", "Your file has been deleted.", "success");
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
